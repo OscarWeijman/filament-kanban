@@ -10,12 +10,10 @@ class Board extends Model
 {
     use HasFactory;
 
-
     protected $fillable = [
         'title',
         'color',
     ];
-
 
     protected $casts = [
         'id' => 'integer',
