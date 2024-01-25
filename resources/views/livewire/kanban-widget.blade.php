@@ -27,8 +27,8 @@
             @endforeach
         </div>
 
-        <div class="flex flex-row-reverse mt-2">
-            <livewire:task-form />
-        </div>
+{{--        <div class="flex flex-row-reverse mt-2">--}}
+{{--            <livewire:task-form />--}}
+{{--        </div>--}}
     </x-filament::section>
 </x-filament-widgets::widget>
