@@ -11,46 +11,49 @@ use Illuminate\View\View;
 class FilamentKanban extends Widget
 {
     protected static string $view = 'livewire.kanban-widget';
+
     protected int | string | array $columnSpan = 'full';
 
     public $boards = [];
 
     public $boardId;
+
     public $taskId;
+
     public $index;
+
     public $dropIndex;
+
     public $dropTaskId;
 
-
-//    public array $boards = [
-//        [
-//            'id'    => 1,
-//            'title' =>  'Todo',
-//            'color' => '#DE6B1F'
-//        ],
-//        [
-//            'id'    => 2,
-//            'title' =>  'In Progress',
-//            'color' => '#D59E2E'
-//        ],
-//        [
-//            'id'    => 3,
-//            'title' =>  'Review',
-//            'color' => '#3182CE'
-//        ],
-//        [
-//            'id'    => 4,
-//            'title' =>  'Done',
-//            'color' => '#37A169'
-//        ]
-//    ];
+    //    public array $boards = [
+    //        [
+    //            'id'    => 1,
+    //            'title' =>  'Todo',
+    //            'color' => '#DE6B1F'
+    //        ],
+    //        [
+    //            'id'    => 2,
+    //            'title' =>  'In Progress',
+    //            'color' => '#D59E2E'
+    //        ],
+    //        [
+    //            'id'    => 3,
+    //            'title' =>  'Review',
+    //            'color' => '#3182CE'
+    //        ],
+    //        [
+    //            'id'    => 4,
+    //            'title' =>  'Done',
+    //            'color' => '#37A169'
+    //        ]
+    //    ];
 
     public function mount(): void
     {
         $boards = Board::with('tasks')->get();
         $this->boards = $boards;
     }
-
 
     public function startDragging($boardId, $taskId, $index)
     {
@@ -59,7 +62,8 @@ class FilamentKanban extends Widget
         $this->index = $index;
     }
 
-    public function setDropIndex($taskId, $index) {
+    public function setDropIndex($taskId, $index)
+    {
         $this->dropTaskId = $taskId;
         $this->dropIndex = $index;
     }
@@ -70,7 +74,8 @@ class FilamentKanban extends Widget
         $this->reorderItems(Task::class, $this->taskId, $dropIndex, $boardId);
     }
 
-    private function reorderItems($modelClassName, $taskId, $newOrder, $newBoardId = null) {
+    private function reorderItems($modelClassName, $taskId, $newOrder, $newBoardId = null)
+    {
         DB::transaction(function () use ($modelClassName, $taskId, $newOrder, $newBoardId) {
             // Vind de taak en krijg de oude waarden
             $task = $modelClassName::find($taskId);
