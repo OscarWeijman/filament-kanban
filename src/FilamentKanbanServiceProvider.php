@@ -10,11 +10,11 @@ use Filament\Support\Facades\FilamentAsset;
 use Filament\Support\Facades\FilamentIcon;
 use Illuminate\Filesystem\Filesystem;
 use Livewire\Features\SupportTesting\Testable;
+use OscarWeijman\FilamentKanban\Commands\FilamentKanbanCommand;
+use OscarWeijman\FilamentKanban\Testing\TestsFilamentKanban;
 use Spatie\LaravelPackageTools\Commands\InstallCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use OscarWeijman\FilamentKanban\Commands\FilamentKanbanCommand;
-use OscarWeijman\FilamentKanban\Testing\TestsFilamentKanban;
 
 class FilamentKanbanServiceProvider extends PackageServiceProvider
 {
