@@ -1,0 +1,78 @@
+{
+    "version": "1.0.0",
+    "name": "oscarweijman/filament-kanban",
+    "description": "This is my package filament-kanban",
+    "keywords": [
+        "Oscar Weijman",
+        "laravel",
+        "filament-kanban"
+    ],
+    "homepage": "https://github.com/oscar-weijman/filament-kanban",
+    "support": {
+        "issues": "https://github.com/oscar-weijman/filament-kanban/issues",
+        "source": "https://github.com/oscar-weijman/filament-kanban"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Oscar Weijman",
+            "email": "opweijman@yahoo.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.1",
+        "filament/filament": "^3.0",
+        "spatie/laravel-package-tools": "^1.15.0",
+        "illuminate/contracts": "^10.0"
+    },
+    "require-dev": {
+        "laravel/pint": "^1.0",
+        "nunomaduro/collision": "^7.9",
+        "nunomaduro/larastan": "^2.0.1",
+        "orchestra/testbench": "^8.0",
+        "pestphp/pest": "^2.0",
+        "pestphp/pest-plugin-arch": "^2.0",
+        "pestphp/pest-plugin-laravel": "^2.0",
+        "phpstan/extension-installer": "^1.1",
+        "phpstan/phpstan-deprecation-rules": "^1.0",
+        "phpstan/phpstan-phpunit": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "OscarWeijman\\FilamentKanban\\": "src/",
+            "OscarWeijman\\FilamentKanban\\Database\\Factories\\": "database/factories/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "OscarWeijman\\FilamentKanban\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "post-autoload-dump": "@php ./vendor/bin/testbench package:discover --ansi",
+        "analyse": "vendor/bin/phpstan analyse",
+        "test": "vendor/bin/pest",
+        "test-coverage": "vendor/bin/pest --coverage",
+        "format": "vendor/bin/pint"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "phpstan/extension-installer": true
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "OscarWeijman\\FilamentKanban\\FilamentKanbanServiceProvider"
+            ],
+            "aliases": {
+                "FilamentKanban": "OscarWeijman\\FilamentKanban\\Facades\\FilamentKanban"
+            }
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
